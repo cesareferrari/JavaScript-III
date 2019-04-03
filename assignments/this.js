@@ -61,27 +61,27 @@ const Furniture = function(type, color, size) {
   this.type = type;
   this.color = color;
   this.size = size;
-  this.makeNoise = function() {
-    return `SQUEAK!, said the ${this.size}, ${this.color} ${this.type}`;
+  this.makeNoise = function(noise) {
+    return `${noise}, said the ${this.size}, ${this.color} ${this.type}`;
   }
 }
 
 const table = new Furniture('table', 'green', 'large');
-console.log(table.makeNoise());
+console.log(table.makeNoise('SQUEAK!'));
 
 const couch = new Furniture('couch', 'golden', 'tiny');
-console.log(couch.makeNoise());
+console.log(couch.makeNoise('SQUEAK!'));
 
 
 // Principle 4
 
 // code example for Explicit Binding
 
-// `this` is now `couch`, it makes noise like a couch
-console.log(table.makeNoise.call(couch));  // SQUEAK!, said the tiny, golden couch
+// `this` is now `couch`
+console.log(table.makeNoise.call(couch, 'SQUEAK!'));  // SQUEAK!, said the tiny, golden couch
 
 // `this` is now `table`
-console.log(couch.makeNoise.call(table));  // SQUEAK!, said the large, green table
+console.log(couch.makeNoise.call(table, 'RUMBLE'));  // RUMBLE, said the large, green table
 
 
 
