@@ -56,6 +56,23 @@ console.log(car.whatsThis());
 
 // code example for New Binding
 
+
+const Furniture = function(type, color, size) {
+  this.type = type;
+  this.color = color;
+  this.size = size;
+  this.makeNoise = function() {
+    return `SQUEAK!, said the ${this.size}, ${this.color} ${this.type}`;
+  }
+}
+
+table = new Furniture('table', 'green', 'large');
+console.log(table.makeNoise());
+
+couch = new Furniture('couch', 'golden', 'tiny');
+console.log(couch.makeNoise());
+
+
 // Principle 4
 
 // code example for Explicit Binding
