@@ -66,13 +66,22 @@ const Furniture = function(type, color, size) {
   }
 }
 
-table = new Furniture('table', 'green', 'large');
+const table = new Furniture('table', 'green', 'large');
 console.log(table.makeNoise());
 
-couch = new Furniture('couch', 'golden', 'tiny');
+const couch = new Furniture('couch', 'golden', 'tiny');
 console.log(couch.makeNoise());
 
 
 // Principle 4
 
 // code example for Explicit Binding
+
+// `this` is now `couch`, it makes noise like a couch
+console.log(table.makeNoise.call(couch));  // SQUEAK!, said the tiny, golden couch
+
+// `this` is now `table`
+console.log(couch.makeNoise.call(table));  // SQUEAK!, said the large, green table
+
+
+
