@@ -25,7 +25,7 @@
 // code example for Window Binding
 
 const sayHi = function(name) {
-  console.log(this); // prints out the global object
+//  console.log(this); // prints out the global object
   return `Hi, ${name}!`;
 } 
 
@@ -35,6 +35,22 @@ console.log(sayHi('Estelle'));
 // Principle 2
 
 // code example for Implicit Binding
+
+const car = {
+  make: 'Ford',
+  color: 'white',
+  honk: function() {
+    return `Honk, honk, I am a ${this.color} ${this.make}`;
+  },
+  whatsThis: function() {
+    return this;
+  }
+}
+
+console.log(car.honk());
+console.log(car.whatsThis());
+
+
 
 // Principle 3
 
